@@ -8,7 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter(val movieHandler: MovieHandler): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     private var titlesArray = arrayOf("Ratatouille", "Coco","Aladdin", "Wall-E", "Up" )
     private var genresArray = arrayOf("Food", "Foreign","Foreign", "Technology", "Adventure" )
@@ -44,7 +44,7 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
             itemView.setOnClickListener{
                 val position: Int = adapterPosition
-                Toast.makeText(itemView.context,"Clicked", Toast.LENGTH_LONG).show()
+                movieHandler.movieSelected(title = titlesArray[position], genre = genresArray[position])
             }
         }
 
