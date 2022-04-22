@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
@@ -40,6 +41,11 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
             itemImage = itemView.findViewById(R.id.item_image)
             itemTitle = itemView.findViewById(R.id.text_title)
             itemGenre = itemView.findViewById(R.id.text_genre)
+
+            itemView.setOnClickListener{
+                val position: Int = adapterPosition
+                Toast.makeText(itemView.context,"Clicked", Toast.LENGTH_LONG).show()
+            }
         }
 
     }
